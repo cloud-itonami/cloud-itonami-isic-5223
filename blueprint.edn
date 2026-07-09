@@ -1,0 +1,11 @@
+{:itonami.blueprint/id "cloud-itonami-5223"
+ :itonami.blueprint/name "Community Airport Operations and Ground Handling"
+ :itonami.blueprint/isic-rev5 "5223"
+ :itonami.blueprint/domain :transport/airport-operations
+ :itonami.blueprint/license "AGPL-3.0-or-later"
+ :itonami.blueprint/social-impact [:aviation-safety :supply-resilience :worker-safety]
+ :itonami.blueprint/governor :airport-operations-governor
+ :itonami.blueprint/robotics true
+ :itonami.blueprint/required-technologies [:robotics :identity :forms :dmn :bpmn :audit-ledger :logistics]
+ :itonami.blueprint/optional-technologies [:optimization]
+ :itonami.blueprint/status :public-oss}
