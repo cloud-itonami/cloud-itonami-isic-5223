@@ -1,0 +1,38 @@
+{:paths ["src"]
+ ;; langgraph brings langchain transitively (both zero-/single-dep,
+ ;; all .cljc -> portable to JVM / SCI / ClojureScript / GraalVM). It lives
+ ;; in the kotoba-lang org of this workspace.
+ ;;
+ ;; This vertical is SELF-CONTAINED: there is no `kotoba-lang/aviation`
+ ;; bespoke domain capability library to delegate aerodrome-certificate /
+ ;; ground-handling-operator-license validation to (grep-checked --
+ ;; `kotoba-lang` has no aviation-domain package), so the facility-
+ ;; verification / open-ramp-hazard / finalization-scope checks live as
+ ;; pure functions in `groundops.facts`/`groundops.governor` rather than
+ ;; wrapping an external lib -- the SAME honest pattern
+ ;; `cloud-itonami-isic-5110` (passenger air transport) and
+ ;; `cloud-itonami-isic-5222` (water transport support) use for their
+ ;; own self-contained verticals.
+ ;;
+ ;; This repo is standalone (forkable outside the workspace); the
+ ;; :local/root paths only resolve inside the monorepo checkout -- a
+ ;; standalone fork should override them with git coordinates.
+ :deps {io.github.kotoba-lang/langgraph
+        {:local/root "../../kotoba-lang/langgraph"}}
+ :aliases
+ {;; offline workspace dev -- pin transitive langchain to local checkout
+  :dev {:override-deps
+        {io.github.kotoba-lang/langchain
+         {:local/root "../../kotoba-lang/langchain"}}}
+  ;; clojure -M:dev:run  -> drive the demo through one OperationActor
+  :run {:main-opts ["-m" "groundops.sim"]}
+  :test {:extra-paths ["test"]
+         :extra-deps {io.github.cognitect-labs/test-runner
+                      {:git/tag "v0.5.1" :git/sha "dfb30dd"}}
+         :main-opts ["-m" "cognitect.test-runner"]
+         :exec-fn cognitect.test-runner.api/test}
+  ;; static analysis -- clj-kondo from deps (no binary), errors fail CI.
+  :lint {:replace-deps {clj-kondo/clj-kondo {:mvn/version "2024.11.14"}}
+         :main-opts    ["-m" "clj-kondo.main"
+                        "--lint" "src" "test"
+                        "--fail-level" "error"]}}}
