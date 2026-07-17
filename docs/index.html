@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Community Airport Operations and Ground Handling | cloud-itonami-isic-5223</title>
+  <meta name="description" content="Community Airport Operations and Ground Handling — governed open occupation blueprint (ISIC 5223).">
+  <style>
+    :root { --bg:#f5f7fa; --card:#fff; --fg:#1b1f24; --muted:#57606a; --accent:#1e3a8a; --line:#d0d7de; }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg:#0d1117; --card:#161b22; --fg:#e6edf3; --muted:#8d96a0; --accent:#58a6ff; --line:#30363d; }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: system-ui, -apple-system, sans-serif; background: linear-gradient(135deg, var(--bg), #c3cfe2);
+           min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px; color: var(--fg); }
+    .container { max-width: 800px; width: 100%; background: var(--card); border-radius: 12px;
+                 box-shadow: 0 10px 40px rgba(0,0,0,.1); padding: 48px 40px; border: 1px solid var(--line); }
+    h1 { font-size: 1.85rem; color: var(--accent); margin-bottom: 8px; }
+    .badge { display: inline-block; background: #e0e7ff; color: var(--accent); padding: 3px 10px;
+             border-radius: 4px; font-size: .85rem; font-weight: 600; margin-bottom: 20px; }
+    @media (prefers-color-scheme: dark) { .badge { background: #1f2a44; } }
+    .pitch { border-left: 4px solid var(--accent); padding-left: 16px; margin: 20px 0 28px; color: var(--muted); line-height: 1.7; }
+    .pitch p { margin-bottom: 10px; }
+    .meta { font-size: .9rem; color: var(--muted); margin-bottom: 24px; }
+    .meta code { background: var(--bg); padding: 1px 6px; border-radius: 4px; }
+    .cta { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 28px; }
+    @media (max-width: 560px) { .cta { grid-template-columns: 1fr; } }
+    .cta a { display: block; text-align: center; text-decoration: none; padding: 14px 18px;
+             border-radius: 8px; font-weight: 600; }
+    .cta .primary { background: var(--accent); color: #fff; }
+    .cta .secondary { border: 1.5px solid var(--accent); color: var(--accent); }
+    ul.links { list-style: none; font-size: .95rem; }
+    ul.links li { margin: 8px 0; }
+    a { color: var(--accent); }
+    footer { margin-top: 28px; padding-top: 16px; border-top: 1px solid var(--line);
+             font-size: .85rem; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <h1>Community Airport Operations and Ground Handling</h1>
+    <div class="badge">ISIC 5223 · maturity unknown</div>
+    <div class="pitch">
+      <p>Open Business Blueprint for ISIC Rev.5 5223: service activities incidental to air transportation (airport operation, air traffic control services, and independent/third-party ground handling).</p>
+      <p>This repository designs a forkable OSS business for community airport operations: airfield/apron-safety-scope management, robotics-assisted runway/taxiway inspection, baggage handling and aircraft turnaround services performed on behalf of MULTIPLE airlines, and slot/booking/ reconciliation records — run by a qualified operator so an airport or independent ground-handling company keeps its own safety-certification and turnaround history instead of renting a closed airport-operations platform.</p>
+      <p>cloud-itonami-isic-5110 (&quot;Community Passenger Air Transport&quot;) already covers the airline business, and its own docs mention &quot;ground handling&quot; as one of the SERVICES AN AIRLINE PERFORMS FOR ITS OWN FLIGHTS (turning around its own aircraft) — an internal function of the carrier, not a separately licensed business. This repository is deliberately scoped to the SEPARATE business of airport operation, air traffic control and independent ground handling: infrastructure and services provided to MULTIPLE airlines under their own independent licensing regime (ICAO Annex 14 aerodrome certification; the US FAA's Part 139 airport certification; the EU's Regulation (EU) 139/2014 aerodrome-operations rules and Directive 96/67/EC governing ground-handling market access; Japan's 空港法 with Civil Aviation Bureau oversight; separately certified air traffic control providers such as the UK's NATS under CAA oversight, the US FAA's Air Traffic Organization, or Japan's own ATC under JCAB). An airport operator, an ATC provider or an independent ground-handling company (e.g. serving several airlines at one airport) is a fundamentally different, separately regulated business from any single airline.</p>
+    </div>
+    <p class="meta">Domain <code>transport/airport-operations</code> · Governor <code>airport-operations-governor</code> · License <code>AGPL-3.0-or-later</code></p>
+    <div class="cta">
+      <a class="primary" href="https://itonami.cloud/isco-1212/">Fork + self-host claim</a>
+      <a class="secondary" href="https://itonami.cloud/docs/go-live.md">Paid go-live path</a>
+    </div>
+    <ul class="links">
+      <li><a href="https://github.com/cloud-itonami/cloud-itonami-isic-5223">GitHub repository</a></li>
+      <li><a href="./operator-quickstart.md">Operator quickstart</a></li>
+      <li><a href="https://github.com/cloud-itonami/cloud-itonami-isic-5223/blob/main/blueprint.edn">blueprint.edn</a></li>
+      <li><a href="https://github.com/cloud-itonami/cloud-itonami-isic-5223/blob/main/README.md">README</a></li>
+    </ul>
+    <footer>
+      <p>Open occupation blueprint — no invented usage or revenue metrics. Product face generated for impl-product maturity (Lane C).</p>
+    </footer>
+  </main>
+</body>
+</html>
