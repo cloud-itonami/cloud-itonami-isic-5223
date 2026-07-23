@@ -1,4 +1,4 @@
-{:itonami.blueprint/id "cloud-itonami-5223"
+{:itonami.blueprint/id "cloud-itonami-isic-5223"
  :itonami.blueprint/name "Community Airport Operations and Ground Handling"
  :itonami.blueprint/isic-rev5 "5223"
  :itonami.blueprint/domain :transport/airport-operations
