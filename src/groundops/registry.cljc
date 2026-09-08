@@ -18,7 +18,7 @@
   call to any real airport-operations system. It builds the RECORD a
   ground-operations coordinator would keep, not a real-world ramp-
   safety act itself."
-  (:require [clojure.string :as str]))
+  (:require [kotoba.lang.text :as str]))
 
 (def op->code
   "op -> short record-kind code used in the record id, matching this
@@ -71,7 +71,7 @@
     (throw (ex-info "register-coordination-record: sequence must be >= 0" {})))
   (let [code (op->code op)
         kind (op->kind op)
-        record-id (str (str/upper-case jurisdiction) "-" code "-" (zero-pad sequence 6))
+        record-id (str (str/upper jurisdiction) "-" code "-" (zero-pad sequence 6))
         record {"record_id" record-id
                 "kind" kind
                 "op" (name op)

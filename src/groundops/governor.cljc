@@ -92,7 +92,7 @@
   four ops: every coordination proposal must cite an official airport/
   ground-handling authority source for the engagement's own
   jurisdiction (`groundops.facts`), never an invented one."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [groundops.facts :as facts]
             [groundops.store :as store]))
 
@@ -152,7 +152,7 @@
   ground-safety-clearance decision is a HARD, PERMANENT block -- see
   ns docstring."
   [_request proposal]
-  (let [text (str/lower-case (str (:summary proposal) " " (:rationale proposal) " " (pr-str (:cites proposal))))]
+  (let [text (str/lower (str (:summary proposal) " " (:rationale proposal) " " (pr-str (:cites proposal))))]
     (when (some #(str/includes? text %) finalize-clearance-phrases)
       [{:rule :finalize-clearance-scope-violation
         :detail "提案テキストが空港/地上安全当局の最終判断/実行行為(ランプ・クリアランス確定、除氷プロトコル無視等)に該当する -- 恒久的にブロック、人間承認でも解除不可"}])))
