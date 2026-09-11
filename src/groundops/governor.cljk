@@ -35,7 +35,7 @@
   therefore phrased as the FINALIZATION/EXECUTION ACTION itself
   (\"finalize the ramp-safety clearance\", \"clear the ramp as safe\",
   \"override the de-icing protocol\") rather than the bare topic noun
-  -- see `test/groundops/governor_contract_test.clj`'s
+  -- see `test/groundops/governor_contract_test.cljk`'s
   `default-advisor-proposals-never-self-trip-finalize-clearance-scope`
   test, which asserts this directly against every default proposal for
   all four ops.
