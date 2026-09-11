@@ -1,5 +1,5 @@
 (ns groundops.sim
-  "Demo driver -- `clojure -M:dev:run`. Walks svc-1 through a clean
+  "Demo driver -- `kbb -M:dev:run`. Walks svc-1 through a clean
   ground-handling-coordination lifecycle (log -> schedule -> coordinate
   equipment maintenance -> flag a ramp-safety concern), then shows what
   flagging the concern does to the SAME engagement (blocks further
