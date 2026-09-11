@@ -27,7 +27,7 @@
   other checks come back. `groundops.governor`'s `high-stakes` gate
   (keyed on `:ground/flag-ramp-safety-concern`) enforces the same
   invariant independently -- two layers, not one, agree on this. See
-  `test/groundops/phase_test.clj`'s
+  `test/groundops/phase_test.cljk`'s
   `flag-ramp-safety-concern-never-auto-at-any-phase`."
   )
 

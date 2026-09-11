@@ -16,7 +16,7 @@
   confirm the seeded engagement ids -- `svc-1`..`svc-5` -- really do
   match `groundops.store/demo-data`), plus the two governor-only
   defense-in-depth checks that `sim` does not exercise end to end but
-  `test/groundops/governor_contract_test.clj` does: a proposal that
+  `test/groundops/governor_contract_test.cljk` does: a proposal that
   drifts into FINALIZING a ramp clearance (routed through the full
   graph with the injected drifting advisor that test already
   establishes) and an op outside the closed allowlist.

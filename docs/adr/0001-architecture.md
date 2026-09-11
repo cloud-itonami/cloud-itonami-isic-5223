@@ -74,7 +74,7 @@ than a bare topic noun ("safety"/"ramp"/"de-icing" alone).
 legitimately talks about ramp hazards, FOD and de-icing-fluid
 holdover time as the CONTENT of a concern being flagged -- a
 bare-noun term list would have self-tripped on exactly this op's own
-happy path. `test/groundops/governor_contract_test.clj`'s
+happy path. `test/groundops/governor_contract_test.cljk`'s
 `default-advisor-proposals-never-self-trip-finalize-clearance-scope`
 asserts directly, for all four ops, that the default mock advisor's
 own proposals never trip this check.
@@ -172,7 +172,7 @@ flip.
   facility-permit verification and ramp-hazard-resolution facts -- this
   actor coordinates around them but never sets them itself.
 - `MemStore` ‖ `DatomicStore` parity is proven by
-  `test/groundops/store_contract_test.clj`.
+  `test/groundops/store_contract_test.cljk`.
 - The self-tripping-bug-class regression is covered by a dedicated
   test, not just avoided by convention.
 
