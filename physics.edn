@@ -1,0 +1,34 @@
+;; What this vertical's robot physically does, declared for
+;; kotoba.robotics.process (kotoba-lang/robotics). `kbb -M:dev:physics` runs it.
+;;
+;; README "Robotics premise": for airport operation / services incidental
+;; to air transportation (ISIC 5223) robots do runway/taxiway inspection,
+;; baggage/cargo tugs, aircraft pushback and de-icing, gated by the Airport
+;; Operations Governor. Physical work modelled here: a towbarless tug
+;; pushing a narrow-body aircraft back off the stand, and the de-icing
+;; boom pumping heated Type I fluid through its hose to the nozzle.
+;;
+;; Every number without a cited source is marked `estimate` in its :basis.
+;; Replacing an estimate with a sourced value is this bot's growth work.
+{:physics/schema "itonami.physical-ai.spec.v1"
+ :repo "cloud-itonami/cloud-itonami-isic-5223"
+ :cases
+ [{:id :narrowbody-pushback
+   :kind :transport
+   :procedure "towbarless tug pushes a narrow-body aircraft 60 m back from the stand onto the taxilane (0.5 deg apron grade)"
+   :params {:mass-kg 15000.0 :distance-m 60.0 :v-max-mps 1.5 :a-max-mps2 0.2
+            :brake-decel-mps2 0.5 :drive-force-n 25000.0 :crr 0.01 :slope-deg 0.5
+            :cog-height-m 0.9 :support-half-length-m 1.8 :max-time-s 1800.0}
+   :sweep {:param :payload-kg :values [40000.0 55000.0 70000.0 79000.0 90000.0]}
+   :quantity :cycle-time-s
+   :limit {:max 60.0 :basis "estimate: pushback leg budget inside the stand's off-block to taxi sequence"}
+   :boundary {:lo 20000.0 :hi 200000.0}}
+  {:id :deicing-boom-hose
+   :kind :pipe-flow
+   :procedure "de-icing vehicle pumps heated Type I glycol mix through 30 m of 32 mm boom hose to the nozzle 10 m up"
+   :params {:diameter-m 0.032 :length-m 30.0 :roughness-m 1.5e-5 :density-kg-m3 1040.0
+            :viscosity-pa-s 2.0e-3 :pump-efficiency 0.6 :elevation-m 10.0}
+   :sweep {:param :q-m3s :values [0.0005 0.001 0.0015 0.002 0.0025 0.003]}
+   :quantity :pressure-drop-pa
+   :limit {:max 2.2e5 :basis "estimate: 2.2 bar of the pump delivery pressure budgeted for hose friction and boom lift; the rest is reserved for the spray nozzle"}
+   :boundary {:lo 0.0002 :hi 0.006}}]}
