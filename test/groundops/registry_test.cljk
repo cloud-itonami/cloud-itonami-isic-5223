@@ -1,5 +1,5 @@
 (ns groundops.registry-test
-  (:require [clojure.test :refer [deftest is]]
+  (:require [kotoba.test :refer [deftest is]]
             [groundops.registry :as r]))
 
 ;; ----------------------------- register-coordination-record -----------------------------

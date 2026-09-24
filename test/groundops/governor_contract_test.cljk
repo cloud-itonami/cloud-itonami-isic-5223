@@ -11,7 +11,7 @@
     the critical regression this fleet has repeatedly hit -- the
     default mock advisor's OWN proposals for every legitimate op never
     self-trip the finalize-clearance-scope guard."
-  (:require [clojure.test :refer [deftest is testing]]
+  (:require [kotoba.test :refer [deftest is testing]]
             [langgraph.graph :as g]
             [groundops.store :as store]
             [groundops.governor :as governor]
