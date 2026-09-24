@@ -2,7 +2,7 @@
   "The phase table as executable tests. The invariant this repo cannot
   regress on: `:flag-ramp-safety-concern` must NEVER be a member of
   any phase's `:auto` set."
-  (:require [clojure.test :refer [deftest is testing]]
+  (:require [kotoba.test :refer [deftest is testing]]
             [groundops.phase :as phase]))
 
 (deftest flag-ramp-safety-concern-never-auto-at-any-phase
