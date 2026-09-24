@@ -36,7 +36,7 @@
   allowlist (a real airport ground-safety authority's call, not this
   actor's -- see the CRITICAL invariant: this actor never finalizes a
   ramp/ground-safety clearance)."
-  (:require #?(:clj  [clojure.edn :as edn]
+  (:require #?(:clj  [kotoba.lang.edn :as edn]
                :cljs [cljs.reader :as edn])
             [groundops.registry :as registry]
             [langchain.db :as d]))
